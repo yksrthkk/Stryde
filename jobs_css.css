@@ -1,0 +1,160 @@
+:root {
+      --primary: #8b5cf6;
+      --secondary: #ec4899;
+      --bg: rgba(15, 15, 20, 0.55);
+      --accent-gradient: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", "Source Code Pro", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, rgba(10,10,10,0.85), rgba(20,20,20,0.85)), url(bg-minecraft.jpg);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR (same as Team page) */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gradient);
+      transition: 0.3s ease;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-content {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 1.5rem 2rem;
+      border-radius: 18px;
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      backdrop-filter: blur(10px);
+      transition: 0.3s ease;
+    }
+
+    .hero-content:hover {
+      transform: translateY(-4px);
+      border-color: rgba(168, 85, 247, 0.3);
+    }
+
+    /* VACANCY CARDS */
+    .vacancy-section {
+      text-align: center;
+      margin-top: 5rem;
+    }
+
+    .vacancies-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      padding: 2rem;
+    }
+
+    .vacancy-card {
+      width: 300px;
+      padding: 2rem;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.05);
+      backdrop-filter: blur(14px);
+      transition: 0.3s ease;
+      text-align: left;
+    }
+
+    .vacancy-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(168, 85, 247, 0.3);
+    }
+
+    .vacancy-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .apply-btn {
+      display: inline-block;
+      margin-top: 1.2rem;
+      padding: 0.7rem 1.8rem;
+      border-radius: 10px;
+      background: var(--accent-gradient);
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .apply-btn:hover { transform: translateY(-3px); }
+
+    /* FOOTER (same as Team page style) */
+    footer {
+      margin-top: 5rem;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }

@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stryde Vacancies</title>
+
+  <!-- Fonts (same as Team page) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+   :root {
+      --primary: #8b5cf6; /* purple */
+      --secondary: #ec4899; /* pink */
+      --bg: rgba(15, 15, 20, 0.55);
+      --accent-gradient: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, rgba(10,10,10,0.85), rgba(20,20,20,0.85)), url(bg-minecraft.jpg);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #d1d1d1;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR (same as Team page) */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gradient);
+      transition: 0.3s ease;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-content {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 1.5rem 2rem;
+      border-radius: 18px;
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      backdrop-filter: blur(10px);
+      transition: 0.3s ease;
+    }
+
+    .hero-content:hover {
+      transform: translateY(-4px);
+      border-color: rgba(168, 85, 247, 0.3);
+    }
+
+    /* VACANCY CARDS */
+    .vacancy-section {
+      text-align: center;
+      margin-top: 5rem;
+    }
+
+    .vacancies-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      padding: 2rem;
+    }
+
+    .vacancy-card {
+      width: 300px;
+      padding: 2rem;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.05);
+      backdrop-filter: blur(14px);
+      transition: 0.3s ease;
+      text-align: left;
+    }
+
+    .vacancy-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(168, 85, 247, 0.3);
+    }
+
+    .vacancy-title {
+      font-size: 1.3rem;
+      font-weight: 1000;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .apply-btn {
+      display: inline-block;
+      margin-top: 1.2rem;
+      padding: 0.7rem 1.8rem;
+      border-radius: 10px;
+      background: var(--accent-gradient);
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .apply-btn:hover { transform: translateY(-3px); }
+
+    /* FOOTER (same as Team page style) */
+    footer {
+      margin-top: 5rem;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+
+    /* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: transparent;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: blur(5px); /* keep frosted glass effect */
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 1000;
+    padding: 1rem 2rem;
+    transition: none;
+}
+
+.nav-links a {
+    color: var(--text-white);
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center; /* centers the nav-links */
+            align-items: center;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.3)); }
+            to { filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.6)); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-purple);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .country-flag {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: #fff;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+.country-flag img {
+  width: 22px;
+  height: 15px;
+  border-radius: 2px;
+  object-fit: cover;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.25);
+}
+
+.country-flag:hover {
+  opacity: 1;
+  filter: drop-shadow(0 0 6px rgba(236, 72, 153, 0.6));
+  transform: translateY(-50%) scale(1.05);
+}
+
+footer {
+      text-align: center;
+      color: #bbb;
+      font-size: 0.9rem;
+      padding: 2rem 0;
+      opacity: 0.8;
+      margin-top: 6rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .features-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #Store{
+            color: #EC4899;
+        }
+
+        .frosted-glass {
+  background: transparent;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Hide-on-scroll animation for navbar */
+nav {
+  transition: transform 0.3s ease-in-out;
+}
+
+nav.hide {
+  transform: translateY(-100%);
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeUp 0.8s ease-out forwards;
+}
+ @keyframes pulse-heart {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.25); opacity: 1; }
+    }
+
+    /* Page Fade-In Animation */
+.page-fade {
+    opacity: 0;
+    animation: pageFadeIn 0.8s ease-out forwards;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+        filter: blur(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+div.btn-container {
+    text-align: center;
+}
+
+.option-btn.selected {
+  background-color: rgba(139,92,246,0.8);
+  color: #fff;
+}
+.option-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(139,92,246,0.5);
+  background-color: rgba(28,28,28,0.8);
+  color: #d1d1d1;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.option-btn:hover {
+  background-color: rgba(139,92,246,0.5);
+}
+
+  </style>
+</head>
+<body class="page-fade">
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav>
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a id="Discord" href="https://discord.gg/Qm6tnQ4aFn" target="_blank">Discord</a></li>
+        <li><a id="Store" href="store.html">Bazaar</a></li>
+        <li><a id="Features" href="contact.html">Connect</a></li>
+        <li><a href="team.html" class="active">Team</a></li>
+      </ul>
+    </div>
+    <div class="country-flag">
+      <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="India" />
+      <span></span>
+    </div>
+  </nav>
+<br>
+<br>
+<br>
+ <!-- HERO / APPLICATION FORM -->
+<section class="hero" style="text-align: center; padding: 4rem 2rem 6rem;">
+  <h1 style="font-size: 3rem; font-weight: 800; 
+             background: var(--accent-gradient); 
+             -webkit-background-clip: text; 
+             -webkit-text-fill-color: transparent; 
+             margin-bottom: 2rem;">
+    Apply to Join Stryde
+  </h1>
+
+  <div class="hero-content" style="display: inline-block; padding: 2rem 2.5rem; 
+                                   border-radius: 20px; border: 1px solid rgba(139,92,246,0.2); 
+                                   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); 
+                                   text-align: left; max-width: 600px; width: 100%;">
+    <form id="stryde-form">
+      <!-- Email -->
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required 
+             style="width:100%; padding:10px; margin-bottom:15px; border-radius:8px; border:none;
+                    background-color: rgba(28,28,28,0.8); color: #d1d1d1; margin-top: 10px;">
+
+      <!-- Discord -->
+      <label for="discord">Discord username *</label>
+      <input type="text" id="discord" name="discord" placeholder="Enter Discord username or ID" required
+             style="width:100%; padding:10px; margin-bottom:5px; border-radius:8px; border:none;
+                    background-color: rgba(28,28,28,0.8); color:#d1d1d1; margin-top: 10px;">
+      <div class="note" style="font-size:12px; color:#bbb; margin-bottom:15px; margin-top: 10px;">
+        (You must be on the Stryde Client's Discord server)
+      </div>
+
+      <!-- Country -->
+      <label for="country">Country *</label>
+      <input type="text" id="country" name="country" placeholder="Enter your country" required
+             style="width:100%; padding:10px; margin-bottom:15px; border-radius:8px; margin-top: 10px; border:none;
+                    background-color: rgba(28,28,28,0.8); color:#d1d1d1;">
+
+      <!-- Time Zone -->
+     <label for="timezone-select">Time zone *</label>
+<select id="timezone-select" name="timezone" style="width:100%; padding:10px; margin-bottom:15px; border-radius:8px; border:none; background-color: rgba(28,28,28,0.8); color:#d1d1d1;">
+  <option value="-12">GMT -12: Baker Island (US, uninhabited)</option>
+  <option value="-11">GMT -11: Niue, American Samoa</option>
+  <option value="-10">GMT -10: Hawaii, Tahiti</option>
+  <option value="-9.5">GMT -9:30: Marquesas Islands</option>
+  <option value="-9">GMT -9: Alaska, Gambier Islands</option>
+  <option value="-8">GMT -8: Pacific Time (US/Canada), Pitcairn Islands</option>
+  <option value="-7">GMT -7: Mountain Time (US/Canada), Chihuahua</option>
+  <option value="-6">GMT -6: Central Time (US/Canada), Mexico City, Central America</option>
+  <option value="-5">GMT -5: Eastern Time (US/Canada), Bogota, Lima</option>
+  <option value="-4.5">GMT -4:30: Venezuela</option>
+  <option value="-4">GMT -4: Atlantic Time (Canada), Caracas, La Paz</option>
+  <option value="-3.5">GMT -3:30: Newfoundland (Canada)</option>
+  <option value="-3">GMT -3: Buenos Aires, Greenland, São Paulo</option>
+  <option value="-2">GMT -2: South Georgia/Sandwich Islands</option>
+  <option value="-1">GMT -1: Azores, Cape Verde</option>
+  <option value="0">GMT ±0: London, Lisbon, Reykjavik</option>
+  <option value="1">GMT +1: Central Europe, Nigeria, Algeria</option>
+  <option value="2">GMT +2: Eastern Europe, South Africa, Israel</option>
+  <option value="3">GMT +3: Moscow, Riyadh, East Africa</option>
+  <option value="3.5">GMT +3:30: Iran</option>
+  <option value="4">GMT +4: UAE, Oman, Azerbaijan</option>
+  <option value="4.5">GMT +4:30: Afghanistan</option>
+  <option value="5">GMT +5: Pakistan, Uzbekistan</option>
+  <option value="5.5">GMT +5:30: India, Sri Lanka</option>
+  <option value="5.75">GMT +5:45: Nepal</option>
+  <option value="6">GMT +6: Bangladesh, Bhutan, Kazakhstan (east)</option>
+  <option value="6.5">GMT +6:30: Cocos Islands, Myanmar</option>
+  <option value="7">GMT +7: Thailand, Vietnam, Jakarta</option>
+  <option value="8">GMT +8: China, Singapore, Western Australia</option>
+  <option value="8.75">GMT +8:45: Southeastern Western Australia (Eucla)</option>
+  <option value="9">GMT +9: Japan, Korea</option>
+  <option value="9.5">GMT +9:30: Northern Territory, South Australia</option>
+  <option value="10">GMT +10: Eastern Australia, Papua New Guinea</option>
+  <option value="10.5">GMT +10:30: Lord Howe Island (Australia)</option>
+  <option value="11">GMT +11: Solomon Islands, Vanuatu</option>
+  <option value="12">GMT +12: New Zealand, Fiji, Marshall Islands</option>
+  <option value="12.75">GMT +12:45: Chatham Islands (NZ)</option>
+  <option value="13">GMT +13: Tonga, Phoenix Islands (Kiribati)</option>
+  <option value="14">GMT +14: Line Islands (Kiribati)</option>
+</select>
+
+
+      <!-- Age -->
+      <label for="age">Your age *</label>
+      <input type="number" id="age" name="age" min="13" placeholder="Must be at least 13" required
+             style="width:100%; padding:10px; margin-bottom:15px; border-radius:8px; border:none;
+                    background-color: rgba(28,28,28,0.8); color:#d1d1d1; margin-top: 10px;">
+
+      <!-- Languages -->
+<label>Languages you speak *</label>
+<div class="options-container" id="languages-container" style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:5px; margin-top: 10px;">
+  <button type="button" class="option-btn">Russian</button>
+  <button type="button" class="option-btn">English</button>
+  <button type="button" class="option-btn">Brazilian</button>
+  <button type="button" class="option-btn">Dutch</button>
+  <button type="button" class="option-btn">Iranian</button>
+  <button type="button" class="option-btn">German</button>
+  <button type="button" class="option-btn">French</button>
+  <button type="button" class="option-btn">Spanish</button>
+</div>
+<input type="text" id="languages-custom" placeholder="Other languages (comma separated)" 
+       style="width:100%; padding:8px; margin-bottom:15px; border-radius:8px; border:none; background-color: rgba(28,28,28,0.8); color:#d1d1d1;">
+
+
+      <!-- About yourself -->
+      <label for="about">Tell us about yourself *</label>
+      <textarea id="about" name="about" placeholder="What you do and what you enjoy" 
+                style="width:100%; padding:10px; margin-top: 10px; margin-bottom:15px; border-radius:8px; border:none; background-color: rgba(28,28,28,0.8); color:#d1d1d1;" required></textarea>
+
+      <!-- Bad qualities -->
+<label>My bad qualities *</label>
+<div class="options-container" id="bad-qualities-container" style="display:flex; margin-top: 10px; flex-wrap:wrap; gap:10px; margin-bottom:5px;">
+  <button type="button" class="option-btn">Impatience</button>
+  <button type="button" class="option-btn">Aggressiveness</button>
+  <button type="button" class="option-btn">Egoism</button>
+  <button type="button" class="option-btn">Dishonesty</button>
+  <button type="button" class="option-btn">Self-criticism</button>
+</div>
+<input type="text" id="bad-qualities-custom" placeholder="Other bad qualities (comma separated)" 
+       style="width:100%; margin-top: 10px; padding:8px; margin-bottom:15px; border-radius:8px; border:none; background-color: rgba(28,28,28,0.8); color:#d1d1d1;">
+
+
+     <!-- Good qualities -->
+<label>My good qualities *</label>
+<div class="options-container" id="good-qualities-container" style="display:flex; margin-top: 10px; flex-wrap:wrap; gap:10px; margin-bottom:5px;">
+  <button type="button" class="option-btn">Responsibility</button>
+  <button type="button" class="option-btn">Politeness</button>
+  <button type="button" class="option-btn">Kindness</button>
+  <button type="button" class="option-btn">Friendliness</button>
+</div>
+<input type="text" id="good-qualities-custom" placeholder="Other good qualities (comma separated)" 
+       style="width:100%; margin-top: 10px; padding:8px; margin-bottom:15px; border-radius:8px; border:none; background-color: rgba(28,28,28,0.8); color:#d1d1d1;">
+
+
+      <!-- Skill level -->
+      <label>Skill level (1–10) *</label>
+      <div class="options-container" id="skill-container" style="display:flex; gap:5px; margin-bottom:15px; margin-top: 10px;">
+        <button type="button" class="skill-btn">1</button>
+        <button type="button" class="skill-btn">2</button>
+        <button type="button" class="skill-btn">3</button>
+        <button type="button" class="skill-btn">4</button>
+        <button type="button" class="skill-btn">5</button>
+        <button type="button" class="skill-btn">6</button>
+        <button type="button" class="skill-btn">7</button>
+        <button type="button" class="skill-btn">8</button>
+        <button type="button" class="skill-btn">9</button>
+        <button type="button" class="skill-btn">10</button>
+      </div>
+
+      <!-- Texture skills -->
+
+      <div style="display:flex; flex-direction:column; gap:5px; margin-bottom:15px; margin-top: 10px;">
+        <label for="cape-texture">Can draw cape texture?</label>
+        <select id="cape-texture" name="cape_texture" style="width:100%; padding:10px; border-radius:8px; border:none; background-color: rgba(28,28,28,0.8); color:#d1d1d1;">
+          <option>No</option>
+          <option>Yes</option>
+        </select>
+        <label for="bandana-texture">Can draw bandana texture?</label>
+        <select id="bandana-texture" name="bandana_texture" style="width:100%; padding:10px; border-radius:8px; border:none; background-color: rgba(28,28,28,0.8); color:#d1d1d1;">
+          <option>No</option>
+          <option>Yes</option>
+        </select>
+      </div>
+
+     <label>Hours per week *</label>
+<input type="range" id="hours-range" name="hours_per_week" min="14" max="40" value="14" 
+       style="width:100%; margin-bottom:10px;">
+<span id="hours-value" style="display:block; text-align:center; margin-bottom:15px;">14 hours</span>
+      <button type="submit" class="apply-btn" style="width:100%; padding:0.8rem; 
+              border-radius:10px; background: var(--accent-gradient); color:#fff; font-weight:600; 
+              margin-top:10px; transition:0.3s ease;">Submit Application</button>
+    </form>
+  </div>
+
+  <script>
+
+    function setupOptionsWithCustom(containerId, customInputId, hiddenName) {
+    const container = document.getElementById(containerId);
+    const customInput = document.getElementById(customInputId);
+    const hiddenInput = document.createElement('input');
+    hiddenInput.type = 'hidden';
+    hiddenInput.name = hiddenName;
+    container.appendChild(hiddenInput);
+
+    // Toggle buttons
+    container.querySelectorAll('.option-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('selected');
+        updateHidden();
+      });
+    });
+
+    // Update hidden input when typing
+    customInput.addEventListener('input', updateHidden);
+
+    function updateHidden() {
+      const selected = [...container.querySelectorAll('.option-btn.selected')].map(b => b.textContent);
+      const typed = customInput.value.split(',').map(s => s.trim()).filter(s => s);
+      hiddenInput.value = [...selected, ...typed].join(',');
+    }
+  }
+
+  // Apply to all three fields
+  setupOptionsWithCustom('languages-container', 'languages-custom', 'languages');
+  setupOptionsWithCustom('bad-qualities-container', 'bad-qualities-custom', 'bad_qualities');
+  setupOptionsWithCustom('good-qualities-container', 'good-qualities-custom', 'good_qualities');
+    // Handle toggleable option buttons
+    document.querySelectorAll('.options-container').forEach(container => {
+      const hiddenInput = document.createElement('input');
+      hiddenInput.type = 'hidden';
+      hiddenInput.name = container.id.replace('-container', '');
+      container.appendChild(hiddenInput);
+
+      container.querySelectorAll('.option-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          btn.classList.toggle('selected');
+          // Update hidden input with comma-separated values
+          const selected = [...container.querySelectorAll('.option-btn.selected')].map(b => b.textContent);
+          hiddenInput.value = selected.join(',');
+        });
+      });
+    });
+
+    // Skill level buttons (only one selectable)
+    const skillContainer = document.getElementById('skill-container');
+    const skillInput = document.createElement('input');
+    skillInput.type = 'hidden';
+    skillInput.name = 'skill_level';
+    skillContainer.appendChild(skillInput);
+
+    skillContainer.querySelectorAll('.skill-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        skillContainer.querySelectorAll('.skill-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        skillInput.value = btn.textContent;
+      });
+    });
+
+    // Hours range slider
+    const hoursRange = document.getElementById('hours-range');
+    const hoursValue = document.getElementById('hours-value');
+    hoursRange.addEventListener('input', () => {
+      hoursValue.textContent = `${hoursRange.value} hours`;
+    });
+
+    // Optional: Add form submit listener to see data in console
+    document.getElementById('stryde-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const data = new FormData(e.target);
+      console.log(Object.fromEntries(data.entries()));
+      alert('Form submitted! Check console for data.');
+    });
+  </script>
+
+  <style>
+    .option-btn.selected, .skill-btn.selected {
+      background-color: rgba(139,92,246,0.8);
+      color: #fff;
+    }
+    .option-btn, .skill-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(139,92,246,0.5);
+      background-color: rgba(28,28,28,0.8);
+      color: #d1d1d1;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .option-btn:hover, .skill-btn:hover {
+      background-color: rgba(139,92,246,0.5);
+    }
+  </style>
+</section>
+
+
+<script>
+  const timezone = document.getElementById('timezone');
+  const timezoneValue = document.getElementById('timezone-value');
+
+  timezone.addEventListener('input', () => {
+    timezoneValue.textContent = timezone.value;
+  });
+</script>
+
+    </div>
+  </section>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  <!-- Stryde Footer (self-contained) -->
+<footer class="footer-credit">
+  <style>
+    :root {
+      --primary-purple: #8B5CF6;
+      --secondary-pink: #EC4899;
+      --text-white: #FFFFFF;
+      --accent-gradient: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+    }
+
+    .footer-credit {
+      text-align: center;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 2rem 1rem;
+      background: rgba(255, 255, 255, 0.01);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      margin-top: 2rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .footer-credit a {
+      color: var(--primary-purple);
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .footer-credit a:hover {
+      color: var(--secondary-pink);
+      transform: translateY(-3px);
+    }
+
+    .footer-credit img {
+      width: 22px;
+      height: 15px;
+      vertical-align: middle;
+      border-radius: 2px;
+      margin: 0 4px;
+    }
+
+    .footer-credit .heart {
+      color: var(--secondary-pink);
+      display: inline-block;
+      animation: pulse-heart 1.6s infinite ease-in-out;
+    }
+
+    @keyframes pulse-heart {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.25); opacity: 1; }
+    }
+  </style>
+
+  <p>&copy; 2025 Stryde Client. All rights reserved.</p>
+
+  <div style="margin: 1rem 0;">
+    <a href="https://discord.gg/mrUxXkG5" target="_blank" aria-label="Discord">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.608 1.248a18.265 18.265 0 0 0-5.487 0 12.47 12.47 0 0 0-.617-1.248.07.07 0 0 0-.079-.037 19.736 19.736 0 0 0-4.885 1.515.064.064 0 0 0-.03.027C2.198 9.129 1.528 13.722 1.838 18.273a.08.08 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.055.077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994a.077.077 0 0 0-.041-.104c-.652-.246-1.27-.549-1.859-.91a.078.078 0 0 1-.008-.127c.124-.094.25-.19.368-.287a.077.077 0 0 1 .08-.01c3.927 1.793 8.18 1.793 12.061 0a.077.077 0 0 1 .081.009c.12.098.245.194.37.288a.078.078 0 0 1-.007.127 12.567 12.567 0 0 1-1.86.91.077.077 0 0 0-.04.104c.36.699.772 1.364 1.226 1.994a.077.077 0 0 0 .084.027 19.876 19.876 0 0 0 6.001-3.055.077.077 0 0 0 .03-.055c.5-6.644-.838-11.197-3.548-13.878a.061.061 0 0 0-.03-.028zm-11.09 9.377c-1.183 0-2.157-1.09-2.157-2.419 0-1.328.955-2.41 2.157-2.41 1.21 0 2.174 1.091 2.157 2.41 0 1.33-.955 2.419-2.157 2.419zm6.455 0c-1.183 0-2.157-1.09-2.157-2.419 0-1.328.955-2.41 2.157-2.41 1.21 0 2.174 1.091 2.157 2.41 0 1.33-.946 2.419-2.157 2.419z"/>
+      </svg>
+    </a>
+    <a href="https://github.com/strydeclient" target="_blank" aria-label="GitHub">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.6-1.4-1.5-1.8-1.5-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.2 2 3.1 1.4 3.8 1.1.1-.9.5-1.4.9-1.7-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.3 11.3 0 0 1 6 0C17.9 5.3 19 5.6 19 5.6c.6 1.7.2 3 .1 3.3.8.8 1.2 1.9 1.2 3.1 0 4.6-2.7 5.5-5.3 5.8.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6a11.5 11.5 0 0 0 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/>
+      </svg>
+    </a>
+    <a href="https://twitter.com/strydeclient" target="_blank" aria-label="Twitter">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M23 2.999a9.025 9.025 0 0 1-2.357.647A4.11 4.11 0 0 0 22.393 1.6a8.83 8.83 0 0 1-2.605.999 4.404 4.404 0 0 0-7.548 3.01c0 .352.04.7.116 1.035-3.66-.188-6.911-1.964-9.08-4.667a4.421 4.421 0 0 0-.597 2.216 4.37 4.37 0 0 0 1.963 3.658 4.215 4.215 0 0 1-2-.56v.06c0 2.02 1.394 3.699 3.24 4.085a4.306 4.306 0 0 1-1.982.08c.559 1.784 2.19 3.078 4.117 3.117A8.848 8.848 0 0 1 2 19.54 12.49 12.49 0 0 0 8.29 21.5c7.547 0 11.675-6.368 11.675-11.885 0-.183-.003-.366-.01-.547A8.56 8.56 0 0 0 23 2.999z"/>
+      </svg>
+    </a>
+    <a href="https://youtube.com/@strydeclient" target="_blank" aria-label="YouTube">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19.6 3.2H4.4C3.08 3.2 2 4.28 2 5.6v12.8c0 1.32 1.08 2.4 2.4 2.4h15.2c1.32 0 2.4-1.08 2.4-2.4V5.6c0-1.32-1.08-2.4-2.4-2.4zM10 15.5v-7l6 3.5-6 3.5z"/>
+      </svg>
+    </a>
+  </div>
+
+  <p>Made in <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="India"> &nbsp; | &nbsp; Made with <span class="heart">❤</span> by the <strong>Stryde Team</strong></p>
+</footer>
+<script src="main.js"></script>
+
+</body>
+</html>
